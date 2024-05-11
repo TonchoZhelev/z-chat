@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeView extends StatefulWidget {
@@ -43,12 +44,49 @@ class _WelcomeViewState extends State<WelcomeView>
           body: child,
         );
       },
-      child: const Center(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Text(
-              'Hello',
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                const Expanded(
+                  child: Image(
+                    image: AssetImage('assets/icon.png'),
+                  ),
+                ),
+                Expanded(
+                  flex: 4,
+                  child: AspectRatio(
+                    aspectRatio: 4.8,
+                    child: FittedBox(
+                      fit: BoxFit.contain,
+                      alignment: Alignment.bottomLeft,
+                      child: AnimatedTextKit(
+                        repeatForever: true,
+                        animatedTexts: [
+                          TypewriterAnimatedText(
+                            'Chat',
+                            textStyle: const TextStyle(
+                              fontWeight: FontWeight.w900,
+                            ),
+                            speed: const Duration(milliseconds: 300),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                const Expanded(
+                  child: SizedBox(
+                    width: 1,
+                    height: 1,
+                  ),
+                ),
+              ],
             ),
           ],
         ),
