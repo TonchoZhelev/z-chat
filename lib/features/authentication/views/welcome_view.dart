@@ -26,7 +26,7 @@ class _WelcomeViewState extends State<WelcomeView>
       ..repeat(reverse: true);
 
     _ani = ColorTween(
-      begin: Colors.blueGrey,
+      begin: Colors.greenAccent,
       end: Colors.white,
     ).animate(_aniCtrl);
   }
@@ -38,10 +38,6 @@ class _WelcomeViewState extends State<WelcomeView>
       builder: (context, child) {
         return Scaffold(
           backgroundColor: _ani.value,
-          appBar: AppBar(
-            backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-            title: Text('Welcome View'),
-          ),
           body: child,
         );
       },
@@ -59,9 +55,9 @@ class _WelcomeViewState extends State<WelcomeView>
                   child: Logo(),
                 ),
                 Expanded(
-                  flex: 4,
+                  flex: 2,
                   child: AspectRatio(
-                    aspectRatio: 4.8,
+                    aspectRatio: 2,
                     child: FittedBox(
                       fit: BoxFit.contain,
                       alignment: Alignment.bottomLeft,
@@ -82,6 +78,17 @@ class _WelcomeViewState extends State<WelcomeView>
                 ),
                 const Spacer(),
               ],
+            ),
+            const SizedBox(
+              height: 64,
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: Text('Log In'),
+            ),
+            OutlinedButton(
+              onPressed: () {},
+              child: Text('Register'),
             ),
           ],
         ),
