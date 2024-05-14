@@ -1,5 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:z_chat/common_widgets/logo.dart';
 
 class WelcomeView extends StatefulWidget {
   const WelcomeView({super.key});
@@ -18,7 +19,7 @@ class _WelcomeViewState extends State<WelcomeView>
     super.initState();
 
     _aniCtrl = AnimationController(
-      duration: const Duration(milliseconds: 1200),
+      duration: const Duration(milliseconds: 2000),
       vsync: this,
     )
       ..forward()
@@ -53,10 +54,9 @@ class _WelcomeViewState extends State<WelcomeView>
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                const Spacer(),
                 const Expanded(
-                  child: Image(
-                    image: AssetImage('assets/icon.png'),
-                  ),
+                  child: Logo(),
                 ),
                 Expanded(
                   flex: 4,
@@ -80,12 +80,7 @@ class _WelcomeViewState extends State<WelcomeView>
                     ),
                   ),
                 ),
-                const Expanded(
-                  child: SizedBox(
-                    width: 1,
-                    height: 1,
-                  ),
-                ),
+                const Spacer(),
               ],
             ),
           ],
